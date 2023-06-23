@@ -31,13 +31,21 @@ window.addEventListener("DOMContentLoaded", function() {
             console.log(posts);
             let dd = document.createElement("dd");
             dd.textContent = "Posts :";
+            dl.appendChild(dd);
             let ul = document.createElement("ul");
             dd.appendChild(ul);
 
             for (let post of posts)
             {
                 let li = document.createElement("li");
-                li.textContent = post;
+                let newPost = document.createElement("dl");
+                let title = document.createElement("dt");
+                title.textContent = post.title;
+                let body = document.createElement("dd");
+                body.textContent = post.body;
+                newPost.appendChild(title);
+                newPost.appendChild(body);
+                li.appendChild(newPost);
                 ul.appendChild(li);
             }
         })
